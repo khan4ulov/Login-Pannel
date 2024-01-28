@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        body {
+            background: linear-gradient(to bottom, #87CEFA, #87CEEB);
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        p {
+            color: #555;
+            margin: 20px 0;
+        }
+
+        .subscribe-box {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .launch-banner {
+            background: #ffcc00;
+            color: #333;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+
+        .subscribe-button {
+            background: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .subscribe-button.subscribed {
+            background: #f5f5f5;
+            color: #333;
+        }
+
+        .message {
+            color: green;
+            margin-top: 10px;
+        }
+
+        .floating-message {
+            position: fixed;
+            bottom: 10px;
+            left: 10px;
+            font-size: 14px;
+            color: red;
+            animation: moveRight 20s infinite; /* Slow animation for moving from left to right */
+        }
+
+        @keyframes moveRight {
+            0% {
+                left: 10px;
+            }
+            100% {
+                left: calc(100% - 10px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Welcome to the Words of Awesh Khan!</h2>
+        <p>Explore the beauty of words and creativity on this platform. Engage with inspiring content that will brighten your day.</p>
+        
+        <div class="subscribe-box">
+            <div class="launch-banner">
+                <p>Launching Soon!</p>
+            </div>
+            <p>Subscribe for updates and be the first to experience our exciting journey:</p>
+            <button class="subscribe-button" onclick="subscribe()">Subscribe</button>
+            <div class="message" id="subscribeMessage"></div>
+        </div>
+        
+        <p>Follow us on social media for more:</p>
+        <!-- Add social media icons or links as needed -->
+
+        <!-- Add more content or elements as needed -->
+    </div>
+    <div class="floating-message">
+        <p>This is designed by Awesh Khan</p>
+    </div>
+
+    <script>
+        function subscribe() {
+            var button = document.querySelector('.subscribe-button');
+            var message = document.getElementById('subscribeMessage');
+
+            if (!button.classList.contains('subscribed')) {
+                button.classList.add('subscribed');
+                button.innerText = 'Subscribed';
+                message.innerText = 'Thanks for subscribing!';
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create New Profile</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Create New Profile</h2>
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+        <form action="/save_profile" method="post">
+            <label for="username">Username:</label>
+            <input type="text" name="username" required>
+
+            <label for="password">Password:</label>
+            <input type="password" name="password" required>
+            <p class="password-instruction">Password should be at least 8 characters long.</p>
+
+            <label for="firstName">First Name:</label>
+            <input type="text" name="firstName" required>
+
+            <label for="lastName">Last Name:</label>
+            <input type="text" name="lastName" required>
+
+            <label for="mobileNo">Mobile Number:</label>
+            <input type="tel" name="mobileNo" pattern="[0-9]{10}" required>
+            <small>Enter a 10-digit mobile number without spaces or dashes.</small>
+
+            <label for="email">Email:</label>
+            <input type="email" name="email" required>
+
+            <button type="submit">Create Profile</button>
+        </form>
+    </div>
+</body>
+</html>
